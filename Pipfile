@@ -15,6 +15,7 @@ markdown = "*"
 loguru = "*"
 django-pure-pagination = "*"
 yagmail = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
