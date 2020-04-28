@@ -36,14 +36,14 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=70, verbose_name='标题')
     body = models.TextField(verbose_name='正文')
-    avatar = models.ImageField(upload_to='article/%Y%m%d/', blank=True)
+    avatar = models.ImageField(upload_to='article/%Y%m%d/', blank=True, verbose_name='文章配图')
     created_time = models.DateTimeField(default=timezone.now, verbose_name='创建时间')
     modified_time = models.DateTimeField(verbose_name='修改时间')
     excerpt = models.CharField(max_length=100, blank=True, verbose_name='文章摘要')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='文章分类')
-    tags = models.ManyToManyField(Tag, blank=True, verbose_name='文章分类')
+    tags = models.ManyToManyField(Tag, blank=True, verbose_name='标签')
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='作者')
-    views = models.PositiveIntegerField(default=0, editable=False)
+    views = models.PositiveIntegerField(default=0, editable=False, verbose_name='阅读量')
 
     class Meta:
         verbose_name = '发布管理'
