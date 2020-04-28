@@ -91,6 +91,7 @@ class ChickenSoup(models.Model):
 # 关于我
 class AboutMe(models.Model):
     description = models.TextField(verbose_name='我的信息')
+    avatar = models.ImageField(upload_to='avatar', blank=True, verbose_name='头像')
 
     class Meta:
         verbose_name = '关于我'
